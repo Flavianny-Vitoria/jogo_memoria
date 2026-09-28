@@ -1,0 +1,244 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #17152e, #34215c);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 750px;
+    text-align: center;
+}
+
+.cabecalho {
+    margin-bottom: 25px;
+}
+
+.cabecalho h1 {
+    font-size: 2.5rem;
+    color: #e8baff;
+    margin-bottom: 10px;
+}
+
+.cabecalho p {
+    color: #d5c6e9;
+}
+
+.painel {
+    background: #272044;
+    border: 1px solid #594582;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 35px #0005;
+}
+
+.painel h2 {
+    color: #e8baff;
+    margin-bottom: 15px;
+}
+
+.painel > p {
+    color: #d5c6e9;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin: 18px 0 8px;
+    color: #e8baff;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 13px;
+    border-radius: 10px;
+    border: 1px solid #735a9f;
+    background: #1c1831;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: #d9a8ff;
+    box-shadow: 0 0 0 2px #d9a8ff33;
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    background: #a76be0;
+    color: white;
+    padding: 13px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 18px;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #bd8af0;
+    transform: translateY(-2px);
+}
+
+.secundario {
+    background: #453666;
+    margin-left: 5px;
+}
+
+.secundario:hover {
+    background: #624c8b;
+}
+
+.escondido {
+    display: none !important;
+}
+
+.informacoes {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.informacoes div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: #39305d;
+    border-radius: 10px;
+    padding: 12px;
+    min-width: 100px;
+}
+
+.informacoes span {
+    font-size: 0.85rem;
+    color: #d5c6e9;
+}
+
+.informacoes strong {
+    font-size: 1.1rem;
+    color: #f0c9ff;
+}
+
+
+.tabuleiro {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+.carta {
+    height:200px;
+    border: 2px solid #9871c5;
+    border-radius: 12px;
+    background: #514078;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+    user-select: none;
+}
+.carta img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.carta:hover:not(.virada):not(.combinada) {
+    transform: scale(1.04);
+    background: #654c91;
+}
+
+.carta.virada {
+    background: #f2e4ff;
+    border-color: #d9a8ff;
+    color: #24153e;
+}
+
+.carta.combinada {
+    background: #337b65;
+    border-color: #78d5ad;
+    cursor: default;
+}
+
+.resultado {
+    background: #39305d;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 20px 0;
+    line-height: 2;
+}
+
+#lista-ranking {
+    text-align: left;
+    padding-left: 30px;
+    margin: 20px 0;
+}
+
+#lista-ranking li {
+    padding: 12px;
+    margin-bottom: 8px;
+    background: #39305d;
+    border-radius: 8px;
+}
+/* FOOTER */
+
+footer {
+    width: 100%;
+    padding: 15px 10%;
+    background-color: #24122f;
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+}
+
+footer h3 {
+    color: #777;
+}
+
+
+@media (max-width: 480px) {
+    .painel {
+        padding: 20px 14px;
+    }
+
+    .cabecalho h1 {
+        font-size: 2rem;
+    }
+
+    .tabuleiro {
+        gap: 7px;
+    }
+
+    .carta {
+        border-radius: 8px;
+    }
+
+    button {
+        width: 100%;
+        margin-left: 0;
+    }
+}

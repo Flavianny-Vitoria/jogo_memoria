@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookMemory 📚</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <header class="cabecalho">
+            <h1>📚 BookMemory</h1>
+            <p>Teste sua memória sobre livros!</p>
+        </header>
+
+        <!-- Tela inicial -->
+        <section id="tela-inicial" class="painel">
+            <h2>Bem-vindo ao BookMemory!</h2>
+            <p>Encontre todos os pares de cartas para vencer.</p>
+
+            <label for="nome">Nome do jogador</label>
+            <input type="text" id="nome" placeholder="Digite seu nome"
+                   maxlength="20">
+
+            <label for="dificuldade">Escolha a dificuldade</label>
+            <select id="dificuldade">
+                <option value="facil">Fácil (6 pares)</option>
+                <option value="medio">Médio (8 pares)</option>
+                <option value="dificil">Difícil (12 pares)</option>
+            </select>
+
+            <button id="iniciar">Começar jogo</button>
+            <button id="ver-ranking" class="secundario">
+                Ver ranking 🏆
+            </button>
+        </section>
+
+        <!-- Tela do jogo -->
+        <section id="tela-jogo" class="painel escondido">
+            <div class="informacoes">
+                <div>
+                    <span>Jogador</span>
+                    <strong id="jogador-atual">Jogador</strong>
+                </div>
+                <div>
+                    <span>Movimentos</span>
+                    <strong id="movimentos">0</strong>
+                </div>
+                <div>
+                    <span>Tempo</span>
+                    <strong id="tempo">00:00</strong>
+                </div>
+            </div>
+
+            <div id="tabuleiro" class="tabuleiro"></div>
+
+            <button id="reiniciar" class="secundario">
+                Reiniciar jogo
+            </button>
+            <button id="voltar" class="secundario">
+                Voltar ao início
+            </button>
+        </section>
+
+        <!-- Tela de vitória -->
+        <section id="tela-vitoria" class="painel escondido">
+            <h2>🏆 Parabéns!</h2>
+            <p>Você encontrou todos os pares!</p>
+            <div class="resultado">
+                <p>Jogador: <strong id="resultado-nome"></strong></p>
+                <p>Movimentos: <strong id="resultado-movimentos"></strong></p>
+                <p>Tempo: <strong id="resultado-tempo"></strong></p>
+            </div>
+            <button id="jogar-novamente">Jogar novamente</button>
+            <button id="inicio-vitoria" class="secundario">
+                Voltar ao início
+            </button>
+        </section>
+
+        <!-- Tela do ranking -->
+        <section id="tela-ranking" class="painel escondido">
+            <h2>🏆 Ranking</h2>
+            <p>Melhores resultados neste navegador</p>
+            <ol id="lista-ranking"></ol>
+            <button id="limpar-ranking" class="secundario">
+                Limpar ranking
+            </button>
+            <button id="voltar-ranking" class="secundario">
+                Voltar
+            </button>
+        </section>
+    </main>
+     <!-- FOOTER -->
+
+    <footer>
+
+        <h3>
+            © 2026 — Por Flavianny Santos
+        </h3>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

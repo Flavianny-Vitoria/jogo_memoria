@@ -1,244 +1,778 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    min-height: 100%;
+}
+
 body {
     min-height: 100vh;
+
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #17152e, #34215c);
+
+    background: linear-gradient(
+        135deg,
+        #17152e,
+        #34215c
+    );
+
     color: #fff;
+
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    padding: 20px 0 0;
+
+    padding: 10px 0;
+
+    overflow-x: hidden;
 }
+
+
+/* =========================
+   CONTAINER
+========================= */
 
 .container {
-    width: 100%;
-    max-width: 750px;
+    width: 96%;
+    max-width: 1400px;
+
     text-align: center;
+
+    flex: 1;
 }
 
+
+/* =========================
+   CABEÇALHO
+========================= */
+
 .cabecalho {
-    margin-bottom: 25px;
+    margin-bottom: 12px;
 }
 
 .cabecalho h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: #e8baff;
-    margin-bottom: 10px;
+
+    margin-bottom: 4px;
 }
 
 .cabecalho p {
     color: #d5c6e9;
+    font-size: 0.95rem;
 }
+
+
+/* =========================
+   PAINEL
+========================= */
 
 .painel {
     background: #272044;
+
     border: 1px solid #594582;
+
     border-radius: 20px;
-    padding: 30px;
+
+    padding: 25px 30px;
+
     box-shadow: 0 10px 35px #0005;
 }
 
+
+/* Tela inicial centralizada */
+
+#tela-inicial,
+#tela-vitoria,
+#tela-gameover,
+#tela-ranking {
+
+    width: 100%;
+    max-width: 750px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================
+   TÍTULOS
+========================= */
+
 .painel h2 {
     color: #e8baff;
-    margin-bottom: 15px;
+
+    margin-bottom: 10px;
 }
 
 .painel > p {
     color: #d5c6e9;
+
     margin-bottom: 20px;
 }
 
-label {
-    display: block;
+
+/* =========================
+   MODOS
+========================= */
+
+.modos {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+
+    margin: 25px 0;
+}
+
+
+.modo-card {
+
+    border: 2px solid #594582;
+
+    border-radius: 15px;
+
+    background: #39305d;
+
+    color: white;
+
+    padding: 18px;
+
+    min-height: 150px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        background 0.2s,
+        border-color 0.2s;
+}
+
+
+.modo-card:hover {
+
+    transform: translateY(-4px);
+
+    background: #453666;
+
+    border-color: #9871c5;
+}
+
+
+.modo-card.selecionado {
+
+    background: #453666;
+
+    border-color: #c68cff;
+
+    box-shadow:
+        0 0 0 2px #c68cff33,
+        0 5px 20px #0004;
+}
+
+
+.icone-modo {
+
+    font-size: 2rem;
+}
+
+
+.modo-card strong {
+
+    color: #f0c9ff;
+
+    font-size: 1.1rem;
+}
+
+
+.modo-card span:last-child {
+
+    color: #d5c6e9;
+
+    font-size: 0.85rem;
+
+    line-height: 1.3;
+}
+
+
+/* =========================
+   DESCRIÇÃO DO MODO
+========================= */
+
+.descricao-selecionada {
+
+    background: #1c1831;
+
+    border: 1px solid #594582;
+
+    border-radius: 10px;
+
+    padding: 12px;
+
+    margin-bottom: 20px;
+
+    color: #e8d7f7;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================
+   CONFIGURAÇÕES
+========================= */
+
+.configuracao {
+
     text-align: left;
-    margin: 18px 0 8px;
+}
+
+
+label {
+
+    display: block;
+
+    margin: 15px 0 8px;
+
     color: #e8baff;
+
     font-weight: bold;
 }
 
-input, select {
+
+input,
+select {
+
     width: 100%;
+
     padding: 13px;
+
     border-radius: 10px;
+
     border: 1px solid #735a9f;
+
     background: #1c1831;
+
     color: white;
+
     font-size: 1rem;
+
     outline: none;
 }
 
-input:focus, select:focus {
+
+input:focus,
+select:focus {
+
     border-color: #d9a8ff;
-    box-shadow: 0 0 0 2px #d9a8ff33;
+
+    box-shadow:
+        0 0 0 2px #d9a8ff33;
 }
 
+
+/* =========================
+   BOTÕES
+========================= */
+
 button {
+
     border: none;
+
     border-radius: 10px;
+
     background: #a76be0;
+
     color: white;
+
     padding: 13px 20px;
+
     font-size: 1rem;
+
     font-weight: bold;
+
     cursor: pointer;
-    margin-top: 18px;
+
     transition: 0.2s;
 }
 
+
 button:hover {
+
     background: #bd8af0;
+
     transform: translateY(-2px);
 }
 
+
 .secundario {
+
     background: #453666;
-    margin-left: 5px;
 }
 
+
 .secundario:hover {
+
     background: #624c8b;
 }
 
+
+.botoes-inicio {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+.botoes-jogo {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+
+/* =========================
+   ESCONDIDO
+========================= */
+
 .escondido {
+
     display: none !important;
 }
 
+
+/* =========================
+   INFORMAÇÕES
+========================= */
+
 .informacoes {
+
     display: flex;
-    justify-content: space-around;
-    gap: 10px;
-    margin-bottom: 25px;
-    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    margin-bottom: 15px;
 }
+
 
 .informacoes div {
+
     display: flex;
+
     flex-direction: column;
-    gap: 6px;
+
+    gap: 4px;
+
     background: #39305d;
+
     border-radius: 10px;
-    padding: 12px;
-    min-width: 100px;
+
+    padding: 8px 25px;
+
+    min-width: 140px;
 }
 
+
 .informacoes span {
-    font-size: 0.85rem;
+
+    font-size: 0.8rem;
+
     color: #d5c6e9;
 }
 
+
 .informacoes strong {
+
     font-size: 1.1rem;
+
     color: #f0c9ff;
 }
 
 
+/* =========================
+   TABULEIRO
+========================= */
+
 .tabuleiro {
+
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 16px;
-    max-width: 850px;
-    margin: 0 auto;
-}
-.carta {
-    height:200px;
-    border: 2px solid #9871c5;
-    border-radius: 12px;
-    background: #514078;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: clamp(1.5rem, 6vw, 2.5rem);
-    cursor: pointer;
-    transition: transform 0.3s, background 0.3s;
-    user-select: none;
-}
-.carta img {
+
+    grid-template-columns: repeat(8, 1fr);
+
+    gap: 10px;
+
     width: 100%;
+}
+
+
+/* =========================
+   CARTAS
+========================= */
+
+.carta {
+
+    aspect-ratio: 3 / 4;
+
+    height: auto;
+
+    border: 2px solid #9871c5;
+
+    border-radius: 12px;
+
+    background: #514078;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 2.5rem;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s,
+        background 0.3s;
+
+    user-select: none;
+
+    overflow: hidden;
+
+    padding: 0;
+}
+
+
+.carta img {
+
+    width: 100%;
+
     height: 100%;
+
     object-fit: cover;
+
     border-radius: 8px;
+
     display: block;
 }
 
+
 .carta:hover:not(.virada):not(.combinada) {
+
     transform: scale(1.04);
+
     background: #654c91;
 }
 
+
 .carta.virada {
+
     background: #f2e4ff;
+
     border-color: #d9a8ff;
+
     color: #24153e;
 }
 
+
 .carta.combinada {
+
     background: #337b65;
+
     border-color: #78d5ad;
+
     cursor: default;
 }
 
+
+/* =========================
+   RESULTADO
+========================= */
+
 .resultado {
+
     background: #39305d;
+
     border-radius: 12px;
+
     padding: 15px;
+
     margin: 20px 0;
+
     line-height: 2;
 }
 
+
+/* =========================
+   RANKING
+========================= */
+
 #lista-ranking {
+
     text-align: left;
+
     padding-left: 30px;
+
     margin: 20px 0;
 }
 
+
 #lista-ranking li {
+
     padding: 12px;
+
     margin-bottom: 8px;
+
     background: #39305d;
+
     border-radius: 8px;
 }
-/* FOOTER */
+
+
+/* =========================
+   MODAL LITERATURA
+========================= */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: #0009;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 1000;
+}
+
+
+.modal-conteudo {
+
+    width: 100%;
+
+    max-width: 450px;
+
+    background: #272044;
+
+    border: 2px solid #9871c5;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 50px #0008;
+
+    animation: aparecer 0.25s ease;
+}
+
+
+.modal-icone {
+
+    font-size: 3rem;
+
+    display: block;
+
+    margin-bottom: 10px;
+}
+
+
+.modal-conteudo h2 {
+
+    color: #e8baff;
+
+    margin-bottom: 12px;
+}
+
+
+.modal-conteudo h3 {
+
+    color: #f0c9ff;
+
+    margin-bottom: 15px;
+}
+
+
+.modal-conteudo p {
+
+    color: #d5c6e9;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(0.9);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
+
     width: 100%;
-    padding: 15px 10%;
+
+    padding: 10px;
+
     background-color: #24122f;
+
     color: white;
+
     text-align: center;
-    margin-top: 30px;
+
+    margin-top: 12px;
 }
+
 
 footer h3 {
+
     color: #777;
+
+    font-size: 1rem;
 }
 
 
-@media (max-width: 480px) {
-    .painel {
-        padding: 20px 14px;
-    }
+/* =========================
+   TABLET
+========================= */
 
-    .cabecalho h1 {
-        font-size: 2rem;
-    }
+@media (max-width: 1000px) {
 
     .tabuleiro {
-        gap: 7px;
+
+        grid-template-columns: repeat(4, 1fr);
+
     }
 
-    .carta {
-        border-radius: 8px;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    .container {
+
+        width: 94%;
+
     }
+
+
+    .cabecalho h1 {
+
+        font-size: 2rem;
+
+    }
+
+
+    .modos {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .informacoes {
+
+        gap: 8px;
+
+        flex-wrap: wrap;
+
+    }
+
+
+    .informacoes div {
+
+        min-width: 90px;
+
+        padding: 8px;
+
+    }
+
+
+    .tabuleiro {
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 7px;
+
+    }
+
+
+    .botoes-inicio,
+    .botoes-jogo {
+
+        flex-direction: column;
+
+    }
+
 
     button {
+
         width: 100%;
-        margin-left: 0;
+
     }
+
+
+    .modal-conteudo {
+
+        padding: 22px;
+
+    }
+
 }

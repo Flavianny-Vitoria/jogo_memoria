@@ -1,106 +1,381 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookMemory 📚</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
     <main class="container">
+
+        <!-- CABEÇALHO -->
         <header class="cabecalho">
             <h1>📚 BookMemory</h1>
             <p>Teste sua memória sobre livros!</p>
         </header>
 
-        <!-- Tela inicial -->
+
+        <!-- =========================
+             TELA INICIAL
+        ========================== -->
+
         <section id="tela-inicial" class="painel">
-            <h2>Bem-vindo ao BookMemory!</h2>
-            <p>Encontre todos os pares de cartas para vencer.</p>
 
-            <label for="nome">Nome do jogador</label>
-            <input type="text" id="nome" placeholder="Digite seu nome"
-                   maxlength="20">
+            <h2>Escolha o modo de jogo</h2>
 
-            <label for="dificuldade">Escolha a dificuldade</label>
-            <select id="dificuldade">
-                <option value="facil">Fácil (6 pares)</option>
-                <option value="medio">Médio (8 pares)</option>
-                <option value="dificil">Difícil (12 pares)</option>
-            </select>
+            <p class="descricao-modo">
+                Escolha como você quer testar sua memória!
+            </p>
 
-            <button id="iniciar">Começar jogo</button>
-            <button id="ver-ranking" class="secundario">
-                Ver ranking 🏆
-            </button>
+
+            <!-- MODOS -->
+
+            <div class="modos">
+
+                <button class="modo-card selecionado" data-modo="classico">
+
+                    <span class="icone-modo">🎮</span>
+
+                    <strong>Clássico</strong>
+
+                    <span>
+                        Encontre todos os pares.
+                    </span>
+
+                </button>
+
+
+                <button class="modo-card" data-modo="desafio">
+
+                    <span class="icone-modo">⚡</span>
+
+                    <strong>Desafio</strong>
+
+                    <span>
+                        Encontre os pares antes do tempo acabar.
+                    </span>
+
+                </button>
+
+
+                <button class="modo-card" data-modo="memoria">
+
+                    <span class="icone-modo">🧠</span>
+
+                    <strong>Memória</strong>
+
+                    <span>
+                        Você terá poucas tentativas.
+                    </span>
+
+                </button>
+
+
+                <button class="modo-card" data-modo="literatura">
+
+                    <span class="icone-modo">📚</span>
+
+                    <strong>Literatura</strong>
+
+                    <span>
+                        Encontre o par e descubra uma curiosidade.
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- DESCRIÇÃO DO MODO -->
+
+            <div id="descricao-selecionada" class="descricao-selecionada">
+                🎮 Modo Clássico: encontre todos os pares no seu próprio ritmo.
+            </div>
+
+
+            <!-- DIFICULDADE -->
+
+            <div class="configuracao">
+
+                <label for="nome">
+                    Nome do jogador
+                </label>
+
+                <input
+                    type="text"
+                    id="nome"
+                    placeholder="Digite seu nome"
+                    maxlength="20"
+                >
+
+
+                <label for="dificuldade">
+                    Escolha a dificuldade
+                </label>
+
+                <select id="dificuldade">
+
+                    <option value="facil">
+                        Fácil (6 pares)
+                    </option>
+
+                    <option value="medio">
+                        Médio (8 pares)
+                    </option>
+
+                    <option value="dificil">
+                        Difícil (12 pares)
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- BOTÕES -->
+
+            <div class="botoes-inicio">
+
+                <button id="iniciar">
+                    Começar jogo
+                </button>
+
+                <button id="ver-ranking" class="secundario">
+                    Ver ranking 🏆
+                </button>
+
+            </div>
+
         </section>
 
-        <!-- Tela do jogo -->
+
+        <!-- =========================
+             TELA DO JOGO
+        ========================== -->
+
         <section id="tela-jogo" class="painel escondido">
+
             <div class="informacoes">
+
                 <div>
                     <span>Jogador</span>
-                    <strong id="jogador-atual">Jogador</strong>
+                    <strong id="jogador-atual">
+                        Jogador
+                    </strong>
                 </div>
+
+
                 <div>
                     <span>Movimentos</span>
-                    <strong id="movimentos">0</strong>
+                    <strong id="movimentos">
+                        0
+                    </strong>
                 </div>
+
+
                 <div>
-                    <span>Tempo</span>
-                    <strong id="tempo">00:00</strong>
+                    <span id="status-label">
+                        Tempo
+                    </span>
+
+                    <strong id="tempo">
+                        00:00
+                    </strong>
                 </div>
+
             </div>
+
+
+            <!-- TABULEIRO -->
 
             <div id="tabuleiro" class="tabuleiro"></div>
 
-            <button id="reiniciar" class="secundario">
-                Reiniciar jogo
-            </button>
-            <button id="voltar" class="secundario">
-                Voltar ao início
-            </button>
+
+            <!-- BOTÕES DO JOGO -->
+
+            <div class="botoes-jogo">
+
+                <button id="reiniciar" class="secundario">
+                    Reiniciar jogo
+                </button>
+
+                <button id="voltar" class="secundario">
+                    Voltar ao início
+                </button>
+
+            </div>
+
         </section>
 
-        <!-- Tela de vitória -->
+
+        <!-- =========================
+             TELA DE VITÓRIA
+        ========================== -->
+
         <section id="tela-vitoria" class="painel escondido">
+
             <h2>🏆 Parabéns!</h2>
-            <p>Você encontrou todos os pares!</p>
+
+            <p id="mensagem-vitoria">
+                Você encontrou todos os pares!
+            </p>
+
+
             <div class="resultado">
-                <p>Jogador: <strong id="resultado-nome"></strong></p>
-                <p>Movimentos: <strong id="resultado-movimentos"></strong></p>
-                <p>Tempo: <strong id="resultado-tempo"></strong></p>
+
+                <p>
+                    Jogador:
+                    <strong id="resultado-nome"></strong>
+                </p>
+
+                <p>
+                    Modo:
+                    <strong id="resultado-modo"></strong>
+                </p>
+
+                <p>
+                    Movimentos:
+                    <strong id="resultado-movimentos"></strong>
+                </p>
+
+                <p>
+                    Tempo:
+                    <strong id="resultado-tempo"></strong>
+                </p>
+
             </div>
-            <button id="jogar-novamente">Jogar novamente</button>
+
+
+            <button id="jogar-novamente">
+                Jogar novamente
+            </button>
+
             <button id="inicio-vitoria" class="secundario">
                 Voltar ao início
             </button>
+
         </section>
 
-        <!-- Tela do ranking -->
+
+        <!-- =========================
+             TELA DE GAME OVER
+        ========================== -->
+
+        <section id="tela-gameover" class="painel escondido">
+
+            <h2>😢 Fim de jogo!</h2>
+
+            <p id="mensagem-gameover"></p>
+
+            <div class="resultado">
+
+                <p>
+                    Jogador:
+                    <strong id="gameover-nome"></strong>
+                </p>
+
+                <p>
+                    Pares encontrados:
+                    <strong id="gameover-pares"></strong>
+                </p>
+
+                <p>
+                    Movimentos:
+                    <strong id="gameover-movimentos"></strong>
+                </p>
+
+            </div>
+
+
+            <button id="tentar-novamente">
+                Tentar novamente
+            </button>
+
+            <button id="inicio-gameover" class="secundario">
+                Voltar ao início
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             TELA DE RANKING
+        ========================== -->
+
         <section id="tela-ranking" class="painel escondido">
+
             <h2>🏆 Ranking 🏆</h2>
-            <p>Melhores resultados neste navegador</p>
+
+            <p>
+                Melhores resultados neste navegador
+            </p>
+
+
             <ol id="lista-ranking"></ol>
+
+
             <button id="limpar-ranking" class="secundario">
                 Limpar ranking
             </button>
+
             <button id="voltar-ranking" class="secundario">
                 Voltar
             </button>
+
         </section>
+
+
     </main>
-     <!-- FOOTER -->
+
+
+    <!-- =========================
+         MODAL DE CURIOSIDADE
+    ========================== -->
+
+    <div id="modal-curiosidade" class="modal escondido">
+
+        <div class="modal-conteudo">
+
+            <span class="modal-icone">
+                📚
+            </span>
+
+            <h2>Par encontrado!</h2>
+
+            <h3 id="curiosidade-titulo">
+                Livro
+            </h3>
+
+            <p id="curiosidade-texto">
+                Curiosidade sobre o livro.
+            </p>
+
+            <button id="continuar-literatura">
+                Continuar
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
 
     <footer>
 
         <h3>
-            © 2026 —Jogo de memória - Por Flavianny Santos
+            © 2026 — Jogo de memória - Por Flavianny Santos
         </h3>
 
     </footer>
 
+
     <script src="script.js"></script>
+
 </body>
+
 </html>
